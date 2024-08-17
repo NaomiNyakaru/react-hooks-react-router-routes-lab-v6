@@ -1,16 +1,49 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 function Movie() {
+  const { id } = useParams(); // Extract the movie id from the URL
+  const [movie, setMovie] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Fetch movie data based on the id from the URL
+    fetch(`http://localhost:4000/movies/${id}`) // Replace with your actual API endpoint
+      .then(response => response.json())
+      .then(data => {
+        setMovie(data);
+        setLoading(false);
+      })
+      .catch(error => {
+        console.error('Error fetching movie:', error);
+        setLoading(false);
+      });
+  }, [id]);
+
+
+
+  if (!movie) {
+    return <p>Movie not found.</p>;
+  }
+
   return (
     <>
       <header>
-        {/* What component should go here? */}
+        <h1>{movie.title}</h1>
       </header>
       <main>
-        {/* Movie info here! */}
+        <p>Time: {movie.time}</p>
+        <div>
+          {movie.genres.map((genre, index) => (
+            <span key={index} style={{ marginRight: '8px' }}>
+              {genre}
+            </span>
+          ))}
+        </div>
       </main>
     </>
   );
-};
+}
 
 export default Movie;
+
