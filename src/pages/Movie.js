@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 function Movie() {
-  const { id } = useParams(); // Extract the movie id from the URL
+  const { id } = useParams(); 
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Fetch movie data based on the id from the URL
-    fetch(`http://localhost:4000/movies/${id}`) // Replace with your actual API endpoint
+ 
+    fetch(`http://localhost:4000/movies/${id}`) 
       .then(response => response.json())
       .then(data => {
         setMovie(data);

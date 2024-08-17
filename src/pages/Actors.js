@@ -5,8 +5,8 @@ function Actors() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Fetch the list of actors from an API or use static data
-    fetch('http://localhost:4000/actors') // Replace with your actual API endpoint
+   
+    fetch('http://localhost:4000/actors') 
       .then(response => response.json())
       .then(data => {
         setActors(data);

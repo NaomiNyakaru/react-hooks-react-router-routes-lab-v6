@@ -1,5 +1,5 @@
 
-import NavBar from '../components/NavBar'; // Adjust the import path based on your file structure
+import NavBar from '../components/NavBar'; 
 
 
 function ErrorPage() {

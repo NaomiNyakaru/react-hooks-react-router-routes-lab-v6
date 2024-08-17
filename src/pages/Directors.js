@@ -1,14 +1,14 @@
 // pages/Directors.js
 import { useEffect, useState } from "react";
-import NavBar from '../components/NavBar'; // Import NavBar component
+import NavBar from '../components/NavBar'; 
 
 function Directors() {
   const [directors, setDirectors] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Fetch the list of directors from an API or use static data
-    fetch('http://localhost:4000/directors') // Replace with your actual API endpoint
+
+    fetch('http://localhost:4000/directors') 
       .then(response => response.json())
       .then(data => {
         setDirectors(data);

@@ -1,13 +1,12 @@
 // pages/Home.js
 import { useEffect, useState } from "react";
-import MovieCard from "../components/MovieCard"; // Ensure the correct path to MovieCard component
+import MovieCard from "../components/MovieCard";
 
 function Home() {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    // Fetch movies from an API or use static data
-    fetch('http://localhost:4000/movies') // Replace with your API endpoint
+    fetch('http://localhost:4000/movies') 
       .then(response => response.json())
       .then(data => setMovies(data))
       .catch(error => console.error('Error fetching movies:', error));
